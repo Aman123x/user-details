@@ -66,10 +66,23 @@ function displayData(storedData){
         
     // })
 
-    // name.value = "";
-    // email.value = "";
-    // phone.value = "";
+    name.value = "";
+    email.value = "";
+    phone.value = "";
 }
+
+window.addEventListener("DOMContentLoaded",function(){
+    axios.get("https://crudcrud.com/api/385c111531e04118bfe88dcc769fc5d0/formDataa")
+    .then((response)=>{
+        for(let i=0;i<response.data.length;i++){
+            const storedData=response.data[i];
+            displayData(storedData);
+        }
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+})
 
 
 
