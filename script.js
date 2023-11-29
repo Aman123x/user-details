@@ -50,6 +50,13 @@ function displayData(storedData){
     detail.appendChild(list);
 
     del.addEventListener("click",function(){
+        axios.delete(`https://crudcrud.com/api/385c111531e04118bfe88dcc769fc5d0/formDataa/${storedData._id}`)
+        .then((response)=>{
+            console.log("Data deleted successfully");
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
         detail.removeChild(list);
     })
 
